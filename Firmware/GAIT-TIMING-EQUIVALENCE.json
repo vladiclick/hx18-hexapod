@@ -1,0 +1,23 @@
+{
+  "rows": 1806,
+  "geometric_fields": [
+    "yaw_deg",
+    "hip_deg",
+    "knee_deg",
+    "x_mm",
+    "y_mm",
+    "z_mm"
+  ],
+  "max_absolute_difference": {
+    "yaw_deg": 0.0,
+    "hip_deg": 0.0,
+    "knee_deg": 0.0,
+    "x_mm": 0.0,
+    "y_mm": 0.0,
+    "z_mm": 0.0
+  },
+  "leg_label_equal": true,
+  "swing_label_mismatches": 0,
+  "geometry_equivalent_tolerance": 1e-05,
+  "geometry_equivalent": true
+}

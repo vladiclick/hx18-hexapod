@@ -1,0 +1,21 @@
+Component,Quantity,Notes
+MG90S,18,Carcasă/urechi/horn nominal; măsoară actual
+Original double horn,18,Spline original compatibil
+Original spline screw,18,Șurub original servo
+M2x8 screw,36,Urechile servourilor
+M2x30 screw,12,Turnuri genunchi
+M2x14 screw,8,PCA9685
+M2x12 screw,4,Feather
+M2x10 screw,4,Regulator servo; angajare completă piuliță
+M2x50 screw,6,Carcasă centrală
+M2 nut,70,Toate șuruburile M2 de mai sus
+M2 washer,70,OD nominal4mm
+M1.6x8 screw,36,Horn → piesă printată; probează găurile
+M1.6 nut,36,Horn
+M1.6 washer,36,OD nominal3.2mm
+M3x10 countersunk90deg screw,12,Talpă șold; cap6mm
+M3x50 screw,6,Stack central44mm; cap de sus
+M3 nut,18,12șold+6stack
+M3 washer,18,ODnominal5.5mm
+Battery/logic straps,3,Măsoară lățime/fante; izolație
+Rubber foot pad,6,Opțional; dimensiunile/punctul de contact trebuie revalidate

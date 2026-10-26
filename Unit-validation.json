@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "test_count": 18,
+  "coverage_scope": [
+    "geometry.py",
+    "core_layout.py"
+  ],
+  "covered_statements": 35,
+  "statement_coverage_percent": 100,
+  "generator_verified_by": "Native CAD integration, STL inspection and F3D round-trip; not included in this unit coverage metric"
+}

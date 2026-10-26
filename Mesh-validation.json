@@ -1,0 +1,223 @@
+[
+  {
+    "part": "Chassis",
+    "quantity": 1,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      138.0,
+      119.512,
+      3.0
+    ],
+    "volume_cm3": 24.31728,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "LowerDeck",
+    "quantity": 1,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      74.0,
+      72.0,
+      6.0
+    ],
+    "volume_cm3": 11.83073,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "PowerShelf",
+    "quantity": 1,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      62.426,
+      71.0,
+      5.0
+    ],
+    "volume_cm3": 5.99661,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "ElectronicsDeck",
+    "quantity": 1,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      86.0,
+      92.0,
+      9.0
+    ],
+    "volume_cm3": 8.80544,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "LowerSpacer",
+    "quantity": 6,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      6.999,
+      7.0,
+      17.0
+    ],
+    "volume_cm3": 0.49976,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "UpperSpacer",
+    "quantity": 6,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      6.999,
+      7.0,
+      15.0
+    ],
+    "volume_cm3": 0.44098,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "GuardLower",
+    "quantity": 4,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      6.399,
+      6.399,
+      23.0
+    ],
+    "volume_cm3": 0.63562,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "GuardUpper",
+    "quantity": 4,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      6.4,
+      6.4,
+      14.6
+    ],
+    "volume_cm3": 0.40353,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "GuardTall",
+    "quantity": 2,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      6.4,
+      6.4,
+      40.0
+    ],
+    "volume_cm3": 1.10516,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "CoreBridge",
+    "quantity": 1,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      79.145,
+      53.2,
+      6.4
+    ],
+    "volume_cm3": 4.82325,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "CoreCap",
+    "quantity": 1,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      87.0,
+      92.0,
+      2.4
+    ],
+    "volume_cm3": 11.51397,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "CoxaPlate",
+    "quantity": 6,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      59.497,
+      26.995,
+      3.0
+    ],
+    "volume_cm3": 3.36907,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "HipBracket",
+    "quantity": 6,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      38.0,
+      19.0,
+      43.0
+    ],
+    "volume_cm3": 4.81312,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "FemurPlate",
+    "quantity": 6,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      40.0,
+      27.0,
+      3.0
+    ],
+    "volume_cm3": 2.66067,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "KneeMount",
+    "quantity": 6,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      37.0,
+      27.0,
+      21.0
+    ],
+    "volume_cm3": 2.8535,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "Tibia",
+    "quantity": 6,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      95.995,
+      27.0,
+      3.0
+    ],
+    "volume_cm3": 3.17826,
+    "bed_z_min_mm": 0.0
+  },
+  {
+    "part": "FitCoupon",
+    "quantity": 1,
+    "watertight": true,
+    "connected_solids": 1,
+    "size_mm": [
+      69.5,
+      27.0,
+      3.0
+    ],
+    "volume_cm3": 3.56462,
+    "bed_z_min_mm": 0.0
+  }
+]

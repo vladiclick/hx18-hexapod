@@ -1,0 +1,304 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1840" viewBox="0 0 2000 1840"><defs><style>text{font-family:Arial,sans-serif;fill:#172639} .title{font-size:37px;font-weight:700}.h{font-size:23px;font-weight:700}.t{font-size:19px}.s{font-size:16px}.box{fill:#fff;stroke:#b3bfca;stroke-width:2}.power{fill:none;stroke:#d5473d;stroke-width:5}.logic{fill:none;stroke:#7056bc;stroke-width:3}.sda{fill:none;stroke:#1886a0;stroke-width:3}.scl{fill:none;stroke:#3b8a53;stroke-width:3}.oe{fill:none;stroke:#bd7620;stroke-width:3}.gnd{fill:none;stroke:#273442;stroke-width:4}.sig{fill:none;stroke:#d68a21;stroke-width:2.5}</style></defs><rect width="2000" height="1840" fill="#f3f6f8"/>
+<text x="60" y="65" class="title">HX18 / 18 × MG90S — cablare V2</text>
+<text x="60" y="100" class="t">ESP32 Feather V2 · 2 × PCA9685 · logică și servouri pe rail-uri separate</text>
+<rect x="60" y="155" width="260" height="135" rx="12" class="box"/>
+<text x="78" y="189" class="h">BAT1 / Gens ace 450</text>
+<text x="78" y="213" class="t">2S 450mAh / XT30</text>
+<text x="78" y="244" class="t">7,4V nominal · 8,4V full</text>
+<text x="78" y="273" class="s">G-Tech-3P: numai încărcare</text>
+<rect x="365" y="155" width="220" height="100" rx="12" class="box"/>
+<text x="383" y="189" class="h">F1 / 7A provizoriu</text>
+<text x="382" y="219" class="s">Siguranță intrare DC</text>
+<text x="382" y="243" class="s">Nu limitator electronic</text>
+<path d="M 320,193 L 365,193" class="power"/>
+<text x="326" y="182" class="s">+</text>
+<rect x="640" y="155" width="245" height="100" rx="12" class="box"/>
+<text x="658" y="189" class="h">D1 / deconectare</text>
+<text x="658" y="219" class="s">Mufă VIN servo, accesibilă</text>
+<text x="658" y="244" class="s">D0 = mufa bateriei</text>
+<path d="M 585,193 L 610,193 L 640,193" class="power"/>
+<circle cx="610" cy="193" r="5" fill="#d5473d"/>
+<rect x="945" y="155" width="340" height="135" rx="12" class="box"/>
+<text x="963" y="189" class="h">REG-S / Pololu #5671</text>
+<text x="962" y="217" class="t">D42V110F5 · ieșire 5V</text>
+<text x="962" y="247" class="s">8–15A tipic, cu validare termică</text>
+<text x="962" y="277" class="s">VIN       GND             VOUT</text>
+<path d="M 885,193 L 945,193" class="power"/>
+<rect x="945" y="375" width="340" height="135" rx="12" class="box"/>
+<text x="963" y="409" class="h">REG-L / Pololu #2831</text>
+<text x="962" y="436" class="t">D24V10F5 · ieșire 5V / 1A</text>
+<text x="962" y="466" class="s">Numai logică / Feather fără GPIO headers</text>
+<text x="962" y="497" class="s">VIN       GND             VOUT</text>
+<path d="M 610,193 L 610,420 L 945,420" class="power"/>
+<text x="633" y="399" class="s">2S după F1</text>
+<rect x="1390" y="155" width="465" height="135" rx="12" class="box"/>
+<text x="1408" y="189" class="h">Distribuție externă 5V servouri</text>
+<text x="1408" y="217" class="t">Roșu → +5V · Maro → GND</text>
+<text x="1408" y="247" class="s">C-A / C-B: 1000µF ≥10V, low-ESR</text>
+<text x="1408" y="277" class="s">Alimentarea servo nu trece prin PCA</text>
+<path d="M 1285,193 L 1390,193" class="power"/>
+<path d="M 1855,193 L 1930,193 L 1930,1510" class="power"/>
+<text x="1850" y="333" class="s">+5V SERVO</text>
+<text x="1850" y="360" class="s">magistrală putere</text>
+<rect x="1440" y="375" width="415" height="135" rx="12" class="box"/>
+<text x="1458" y="409" class="h">Feather / USB-C (MCU1)</text>
+<text x="1458" y="436" class="t">Cablu scurt conform USB-C</text>
+<text x="1458" y="466" class="s">Scos înainte de USB computer</text>
+<text x="1458" y="496" class="s">BAT/JST Feather: NU conecta 2S</text>
+<path d="M 1285,420 L 1440,420" class="power"/>
+<text x="1310" y="400" class="s">5V LOGICĂ</text>
+<path d="M 1930,300 L 1450,300 L 1450,313" class="power"/>
+<circle cx="1930" cy="300" r="5" fill="#d5473d"/>
+<path d="M1440,313 h20 M1440,325 h20" stroke="#273442" stroke-width="3"/>
+<path d="M 1450,325 L 1450,340 L 1880,340" class="gnd"/>
+<circle cx="1880" cy="340" r="5" fill="#273442"/>
+<path d="M 1930,300 L 1800,300 L 1800,313" class="power"/>
+<circle cx="1930" cy="300" r="5" fill="#d5473d"/>
+<path d="M1790,313 h20 M1790,325 h20" stroke="#273442" stroke-width="3"/>
+<path d="M 1800,325 L 1800,340 L 1880,340" class="gnd"/>
+<circle cx="1880" cy="340" r="5" fill="#273442"/>
+<text x="1425" y="365" class="s">C-A / C-B între5V șiGND; polaritate verificată</text>
+<path d="M 210,290 L 210,560 L 1880,560 L 1880,1600 L 60,1600" class="gnd"/>
+<path d="M 1115,290 L 1340,320 L 1340,560" class="gnd"/>
+<circle cx="1340" cy="560" r="5" fill="#273442"/>
+<path d="M 1115,510 L 1115,560" class="gnd"/>
+<circle cx="1115" cy="560" r="5" fill="#273442"/>
+<path d="M 1630,290 L 1880,320 L 1880,560" class="gnd"/>
+<circle cx="1880" cy="560" r="5" fill="#273442"/>
+<path d="M 1630,510 L 1630,560" class="gnd"/>
+<circle cx="1630" cy="560" r="5" fill="#273442"/>
+<text x="60" y="591" class="s">GND comun: baterie, ambele regulatoare, Feather, PCA și servouri; puterea nu se întoarce prin Feather.</text>
+<rect x="640" y="650" width="720" height="160" rx="12" class="box"/>
+<text x="658" y="684" class="h">MCU1 / Adafruit Feather ESP32 V2 #5400</text>
+<text x="661" y="715" class="t">Program: Arduino ESP32 3.x · board Feather ESP32 V2</text>
+<text x="661" y="746" class="t">OE HIGH = impulsuri oprite · GPIO27 LOW = activare</text>
+<text x="705" y="782" class="s" text-anchor="middle">3V</text>
+<text x="890" y="782" class="s" text-anchor="middle">SDA / GPIO22</text>
+<text x="1080" y="782" class="s" text-anchor="middle">SCL / GPIO20</text>
+<text x="1290" y="782" class="s" text-anchor="middle">GPIO27 / OE</text>
+<path d="M 1360,710 L 1380,710 L 1380,560" class="gnd"/>
+<circle cx="1380" cy="560" r="5" fill="#273442"/>
+<text x="1335" y="695" class="s">GND</text>
+<path d="M 705,810 L 705,850" class="logic"/>
+<path d="M 95,850 L 1305,850" class="logic"/>
+<text x="1375" y="840" class="s">3V / VCC 3,3V</text>
+<path d="M 95,850 L 95,1050" class="logic"/>
+<circle cx="95" cy="850" r="5" fill="#7056bc"/>
+<path d="M 1075,850 L 1075,1050" class="logic"/>
+<circle cx="1075" cy="850" r="5" fill="#7056bc"/>
+<path d="M 890,810 L 890,890" class="sda"/>
+<path d="M 95,890 L 1305,890" class="sda"/>
+<text x="1375" y="880" class="s">SDA / GPIO22</text>
+<path d="M 165,890 L 165,1050" class="sda"/>
+<circle cx="165" cy="890" r="5" fill="#1886a0"/>
+<path d="M 1145,890 L 1145,1050" class="sda"/>
+<circle cx="1145" cy="890" r="5" fill="#1886a0"/>
+<path d="M 1080,810 L 1080,930" class="scl"/>
+<path d="M 95,930 L 1305,930" class="scl"/>
+<text x="1375" y="920" class="s">SCL / GPIO20</text>
+<path d="M 235,930 L 235,1050" class="scl"/>
+<circle cx="235" cy="930" r="5" fill="#3b8a53"/>
+<path d="M 1215,930 L 1215,1050" class="scl"/>
+<circle cx="1215" cy="930" r="5" fill="#3b8a53"/>
+<path d="M 1290,810 L 1290,970" class="oe"/>
+<path d="M 95,970 L 1305,970" class="oe"/>
+<text x="1375" y="960" class="s">OE / GPIO27</text>
+<path d="M 305,970 L 305,1050" class="oe"/>
+<circle cx="305" cy="970" r="5" fill="#bd7620"/>
+<path d="M 1285,970 L 1285,1050" class="oe"/>
+<circle cx="1285" cy="970" r="5" fill="#bd7620"/>
+<path d="M 1505,850 L 1650,850 L 1650,884" class="logic"/>
+<path d="M 1305,850 L 1505,850" class="logic"/>
+<path d="M1650,884 l-10,8 l20,8 l-20,8 l20,8 l-20,8 l10,8" fill="none" stroke="#7056bc" stroke-width="3"/>
+<path d="M 1650,932 L 1650,970 L 1305,970" class="oe"/>
+<text x="1675" y="911" class="s">R-OE 1kΩ / 1%</text>
+<text x="1675" y="941" class="s">Un singur pull-up comun</text>
+<text x="1390" y="1013" class="s">R7 pe fiecare PCA: 10kΩ către GND, păstrate</text>
+<rect x="60" y="1050" width="330" height="480" rx="12" class="box"/>
+<text x="78" y="1084" class="h">PCA-A / Adafruit #815</text>
+<text x="76" y="1112" class="t">Adresă 0x40 / A0 deschis</text>
+<text x="76" y="1145" class="s">VCC  SDA  SCL  OE sus; GND jos</text>
+<text x="76" y="1174" class="s">V+ NEconectat · CH9–15 FULL_OFF</text>
+<path d="M 220,1530 L 220,1600" class="gnd"/>
+<circle cx="220" cy="1600" r="5" fill="#273442"/>
+<text x="235" y="1567" class="s">GND</text>
+<text x="75" y="1226" class="s">CH0</text>
+<path d="M 155,1220 L 480,1220" class="sig"/>
+<text x="180" y="1213" class="s">PWM → SV0</text>
+<rect x="480" y="1207" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="490" y="1226" class="s">L1 / YAW / servo 0</text>
+<path d="M 850,1213 L 900,1213" class="power"/>
+<circle cx="900" cy="1213" r="5" fill="#d5473d"/>
+<path d="M 850,1229 L 950,1229" class="gnd"/>
+<circle cx="950" cy="1229" r="5" fill="#273442"/>
+<text x="75" y="1260" class="s">CH1</text>
+<path d="M 155,1254 L 480,1254" class="sig"/>
+<text x="180" y="1247" class="s">PWM → SV1</text>
+<rect x="480" y="1241" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="490" y="1260" class="s">L1 / HIP / servo 1</text>
+<path d="M 850,1247 L 900,1247" class="power"/>
+<circle cx="900" cy="1247" r="5" fill="#d5473d"/>
+<path d="M 850,1263 L 950,1263" class="gnd"/>
+<circle cx="950" cy="1263" r="5" fill="#273442"/>
+<text x="75" y="1294" class="s">CH2</text>
+<path d="M 155,1288 L 480,1288" class="sig"/>
+<text x="180" y="1281" class="s">PWM → SV2</text>
+<rect x="480" y="1275" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="490" y="1294" class="s">L1 / KNEE / servo 2</text>
+<path d="M 850,1281 L 900,1281" class="power"/>
+<circle cx="900" cy="1281" r="5" fill="#d5473d"/>
+<path d="M 850,1297 L 950,1297" class="gnd"/>
+<circle cx="950" cy="1297" r="5" fill="#273442"/>
+<text x="75" y="1328" class="s">CH3</text>
+<path d="M 155,1322 L 480,1322" class="sig"/>
+<text x="180" y="1315" class="s">PWM → SV3</text>
+<rect x="480" y="1309" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="490" y="1328" class="s">L2 / YAW / servo 3</text>
+<path d="M 850,1315 L 900,1315" class="power"/>
+<circle cx="900" cy="1315" r="5" fill="#d5473d"/>
+<path d="M 850,1331 L 950,1331" class="gnd"/>
+<circle cx="950" cy="1331" r="5" fill="#273442"/>
+<text x="75" y="1362" class="s">CH4</text>
+<path d="M 155,1356 L 480,1356" class="sig"/>
+<text x="180" y="1349" class="s">PWM → SV4</text>
+<rect x="480" y="1343" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="490" y="1362" class="s">L2 / HIP / servo 4</text>
+<path d="M 850,1349 L 900,1349" class="power"/>
+<circle cx="900" cy="1349" r="5" fill="#d5473d"/>
+<path d="M 850,1365 L 950,1365" class="gnd"/>
+<circle cx="950" cy="1365" r="5" fill="#273442"/>
+<text x="75" y="1396" class="s">CH5</text>
+<path d="M 155,1390 L 480,1390" class="sig"/>
+<text x="180" y="1383" class="s">PWM → SV5</text>
+<rect x="480" y="1377" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="490" y="1396" class="s">L2 / KNEE / servo 5</text>
+<path d="M 850,1383 L 900,1383" class="power"/>
+<circle cx="900" cy="1383" r="5" fill="#d5473d"/>
+<path d="M 850,1399 L 950,1399" class="gnd"/>
+<circle cx="950" cy="1399" r="5" fill="#273442"/>
+<text x="75" y="1430" class="s">CH6</text>
+<path d="M 155,1424 L 480,1424" class="sig"/>
+<text x="180" y="1417" class="s">PWM → SV6</text>
+<rect x="480" y="1411" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="490" y="1430" class="s">L3 / YAW / servo 6</text>
+<path d="M 850,1417 L 900,1417" class="power"/>
+<circle cx="900" cy="1417" r="5" fill="#d5473d"/>
+<path d="M 850,1433 L 950,1433" class="gnd"/>
+<circle cx="950" cy="1433" r="5" fill="#273442"/>
+<text x="75" y="1464" class="s">CH7</text>
+<path d="M 155,1458 L 480,1458" class="sig"/>
+<text x="180" y="1451" class="s">PWM → SV7</text>
+<rect x="480" y="1445" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="490" y="1464" class="s">L3 / HIP / servo 7</text>
+<path d="M 850,1451 L 900,1451" class="power"/>
+<circle cx="900" cy="1451" r="5" fill="#d5473d"/>
+<path d="M 850,1467 L 950,1467" class="gnd"/>
+<circle cx="950" cy="1467" r="5" fill="#273442"/>
+<text x="75" y="1498" class="s">CH8</text>
+<path d="M 155,1492 L 480,1492" class="sig"/>
+<text x="180" y="1485" class="s">PWM → SV8</text>
+<rect x="480" y="1479" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="490" y="1498" class="s">L3 / KNEE / servo 8</text>
+<path d="M 850,1485 L 900,1485" class="power"/>
+<circle cx="900" cy="1485" r="5" fill="#d5473d"/>
+<path d="M 850,1501 L 950,1501" class="gnd"/>
+<circle cx="950" cy="1501" r="5" fill="#273442"/>
+<rect x="1040" y="1050" width="330" height="480" rx="12" class="box"/>
+<text x="1058" y="1084" class="h">PCA-B / Adafruit #815</text>
+<text x="1056" y="1112" class="t">Adresă 0x41 / A0 închis</text>
+<text x="1056" y="1145" class="s">VCC  SDA  SCL  OE sus; GND jos</text>
+<text x="1056" y="1174" class="s">V+ NEconectat · CH9–15 FULL_OFF</text>
+<path d="M 1200,1530 L 1200,1600" class="gnd"/>
+<circle cx="1200" cy="1600" r="5" fill="#273442"/>
+<text x="1215" y="1567" class="s">GND</text>
+<text x="1055" y="1226" class="s">CH0</text>
+<path d="M 1135,1220 L 1460,1220" class="sig"/>
+<text x="1160" y="1213" class="s">PWM → SV9</text>
+<rect x="1460" y="1207" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="1470" y="1226" class="s">L4 / YAW / servo 9</text>
+<path d="M 1830,1213 L 1930,1213" class="power"/>
+<circle cx="1930" cy="1213" r="5" fill="#d5473d"/>
+<path d="M 1830,1229 L 1880,1229" class="gnd"/>
+<circle cx="1880" cy="1229" r="5" fill="#273442"/>
+<text x="1055" y="1260" class="s">CH1</text>
+<path d="M 1135,1254 L 1460,1254" class="sig"/>
+<text x="1160" y="1247" class="s">PWM → SV10</text>
+<rect x="1460" y="1241" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="1470" y="1260" class="s">L4 / HIP / servo 10</text>
+<path d="M 1830,1247 L 1930,1247" class="power"/>
+<circle cx="1930" cy="1247" r="5" fill="#d5473d"/>
+<path d="M 1830,1263 L 1880,1263" class="gnd"/>
+<circle cx="1880" cy="1263" r="5" fill="#273442"/>
+<text x="1055" y="1294" class="s">CH2</text>
+<path d="M 1135,1288 L 1460,1288" class="sig"/>
+<text x="1160" y="1281" class="s">PWM → SV11</text>
+<rect x="1460" y="1275" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="1470" y="1294" class="s">L4 / KNEE / servo 11</text>
+<path d="M 1830,1281 L 1930,1281" class="power"/>
+<circle cx="1930" cy="1281" r="5" fill="#d5473d"/>
+<path d="M 1830,1297 L 1880,1297" class="gnd"/>
+<circle cx="1880" cy="1297" r="5" fill="#273442"/>
+<text x="1055" y="1328" class="s">CH3</text>
+<path d="M 1135,1322 L 1460,1322" class="sig"/>
+<text x="1160" y="1315" class="s">PWM → SV12</text>
+<rect x="1460" y="1309" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="1470" y="1328" class="s">L5 / YAW / servo 12</text>
+<path d="M 1830,1315 L 1930,1315" class="power"/>
+<circle cx="1930" cy="1315" r="5" fill="#d5473d"/>
+<path d="M 1830,1331 L 1880,1331" class="gnd"/>
+<circle cx="1880" cy="1331" r="5" fill="#273442"/>
+<text x="1055" y="1362" class="s">CH4</text>
+<path d="M 1135,1356 L 1460,1356" class="sig"/>
+<text x="1160" y="1349" class="s">PWM → SV13</text>
+<rect x="1460" y="1343" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="1470" y="1362" class="s">L5 / HIP / servo 13</text>
+<path d="M 1830,1349 L 1930,1349" class="power"/>
+<circle cx="1930" cy="1349" r="5" fill="#d5473d"/>
+<path d="M 1830,1365 L 1880,1365" class="gnd"/>
+<circle cx="1880" cy="1365" r="5" fill="#273442"/>
+<text x="1055" y="1396" class="s">CH5</text>
+<path d="M 1135,1390 L 1460,1390" class="sig"/>
+<text x="1160" y="1383" class="s">PWM → SV14</text>
+<rect x="1460" y="1377" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="1470" y="1396" class="s">L5 / KNEE / servo 14</text>
+<path d="M 1830,1383 L 1930,1383" class="power"/>
+<circle cx="1930" cy="1383" r="5" fill="#d5473d"/>
+<path d="M 1830,1399 L 1880,1399" class="gnd"/>
+<circle cx="1880" cy="1399" r="5" fill="#273442"/>
+<text x="1055" y="1430" class="s">CH6</text>
+<path d="M 1135,1424 L 1460,1424" class="sig"/>
+<text x="1160" y="1417" class="s">PWM → SV15</text>
+<rect x="1460" y="1411" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="1470" y="1430" class="s">L6 / YAW / servo 15</text>
+<path d="M 1830,1417 L 1930,1417" class="power"/>
+<circle cx="1930" cy="1417" r="5" fill="#d5473d"/>
+<path d="M 1830,1433 L 1880,1433" class="gnd"/>
+<circle cx="1880" cy="1433" r="5" fill="#273442"/>
+<text x="1055" y="1464" class="s">CH7</text>
+<path d="M 1135,1458 L 1460,1458" class="sig"/>
+<text x="1160" y="1451" class="s">PWM → SV16</text>
+<rect x="1460" y="1445" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="1470" y="1464" class="s">L6 / HIP / servo 16</text>
+<path d="M 1830,1451 L 1930,1451" class="power"/>
+<circle cx="1930" cy="1451" r="5" fill="#d5473d"/>
+<path d="M 1830,1467 L 1880,1467" class="gnd"/>
+<circle cx="1880" cy="1467" r="5" fill="#273442"/>
+<text x="1055" y="1498" class="s">CH8</text>
+<path d="M 1135,1492 L 1460,1492" class="sig"/>
+<text x="1160" y="1485" class="s">PWM → SV17</text>
+<rect x="1460" y="1479" width="370" height="27" rx="5" fill="#fff" stroke="#d2dae0"/>
+<text x="1470" y="1498" class="s">L6 / KNEE / servo 17</text>
+<path d="M 1830,1485 L 1930,1485" class="power"/>
+<circle cx="1930" cy="1485" r="5" fill="#d5473d"/>
+<path d="M 1830,1501 L 1880,1501" class="gnd"/>
+<circle cx="1880" cy="1501" r="5" fill="#273442"/>
+<path d="M 900,1492 L 900,1015 L 510,1015 L 510,600 L 1930,600" class="power"/>
+<circle cx="1930" cy="600" r="5" fill="#d5473d"/>
+<path d="M 950,1229 L 950,1600" class="gnd"/>
+<circle cx="950" cy="1600" r="5" fill="#273442"/>
+<text x="60" y="1660" class="t">Fiecare MG90S: portocaliu = semnal PCA · roșu = distribuție 5V · maro = distribuție GND.</text>
+<text x="60" y="1700" class="t">ARM este blocat până la calibrare fizică. OE nu scoate alimentarea. D1 oprește servourile; D0 deconectează tot pack-ul.</text>
+<text x="60" y="1740" class="s">Schema este funcțională, nu desen de PCB. Gabaritele cablurilor, protecția LiPo și curentul real trebuie verificate pe banc.</text>
+<text x="60" y="1815" class="s">Intersecțiile fără punct nu sunt conectate; punctul colorat marchează o conexiune electrică.</text>
+<text x="60" y="1780" class="s">Surse: Adafruit Feather V2 / PCA9685, NXP PCA9685, Pololu #5671/#2831, Gens ace GEA4502S60XT3.</text>
+</svg>

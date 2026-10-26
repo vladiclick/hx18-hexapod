@@ -1,0 +1,26 @@
+{
+  "F3D_reopened": true,
+  "occurrences": 154,
+  "revolute_joints": 18,
+  "rigid_joints": 134,
+  "preserved_print_components": 17,
+  "original_reference_sketch_preserved": true,
+  "timeline_issues": [],
+  "assembly_bounds_mm": [
+    [
+      -135.4718718680385,
+      -134.92854778743995,
+      -63.12346561718209
+    ],
+    [
+      135.47187186803933,
+      134.92854778743907,
+      62.02000000000001
+    ]
+  ],
+  "assembly_size_mm": [
+    270.94374373607786,
+    269.85709557487905,
+    125.1434656171821
+  ]
+}

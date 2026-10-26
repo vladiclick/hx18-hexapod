@@ -1,0 +1,110 @@
+{
+  "host_tests": "PASS, ASan/UBSan; unit+integration+simulated E2E",
+  "board_compile": {
+    "status": "PASS",
+    "fqbn": "esp32:esp32:adafruit_feather_esp32_v2",
+    "arduino_cli": "1.5.1",
+    "esp32_core": "3.3.12",
+    "program_bytes": 365681,
+    "program_max_bytes": 3342336,
+    "global_ram_bytes": 25140,
+    "ram_max_bytes": 327680,
+    "official_core_unmodified": true,
+    "installation_note": "Official source/checksummed tool archives; installer index omitted unused other-chip debugger/filesystem tools. All compile inputs are official Espressif3.3.12.",
+    "compiler": "xtensa-esp-elf-g++14.2.0, crosstool-NGesp-14.2.0_20260121"
+  },
+  "physical_validation": false,
+  "upload_performed": false,
+  "geometry_mm": {
+    "coxa": 30,
+    "femur": 42,
+    "tibia": 80,
+    "lateral_foot": 13.5,
+    "stand_hip_x": 25,
+    "stand_relative_z": -97.44554284044901
+  },
+  "gait": {
+    "cycle_seconds": 18,
+    "stride_half_mm": 6,
+    "lift_mm": 6,
+    "wave_order": [
+      1,
+      4,
+      2,
+      5,
+      3,
+      6
+    ],
+    "desired_stance_contacts": 5,
+    "stance_common_velocity_mm_s": 0.8,
+    "startup_preposition_seconds": 18,
+    "body_speed_ramp_seconds": 3,
+    "STOP": "Hold plantedXY; smoothly lower modeled airbornefoot2s",
+    "max_horizontal_hip_foot_lever_mm": 33.87140132608593,
+    "gait_targets_tested": 360000,
+    "startup_targets_tested": 108006,
+    "CAD_gait_targets": 1806,
+    "CAD_startup_targets": 3606,
+    "yaw_deg_range": [
+      -6.27269,
+      6.4447
+    ],
+    "hip_deg_range": [
+      -2.70964,
+      7.25551
+    ],
+    "knee_deg_range": [
+      -13.1907,
+      -0.065306
+    ],
+    "swing_seconds": 3,
+    "smoothed_model_support_test": "At most1modeledfoot >0.25mm aboveplane; firstWALK54s and restart27s checkedevery20ms",
+    "geometric_equivalence_to_12s_audit": "PASS: all1806angles/XYZ/swinglabels identical; timestamps only differ"
+  },
+  "core_coverage": {
+    "lines_percent": 100,
+    "functions_percent": 100,
+    "branches_percent": 92.77
+  },
+  "safety": {
+    "servo_verified_default": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "oscillator_verified_default": [
+      false,
+      false
+    ],
+    "calibration_reviewed_default": false,
+    "OE_GPIO": 27,
+    "OE_external_pullup": "1kΩ to3.3V with2×10kΩ pulldowns; alternativelyremovebothR7+10kΩpullup",
+    "heartbeat_timeout_ms": 1500,
+    "loop_stall_limit_ms": 100,
+    "task_watchdog_ms": 1000,
+    "speed_limit_deg_s": 12,
+    "acceleration_limit_deg_s2": 30
+  },
+  "source_sha256": {
+    "HX18Controller/HX18Controller.ino": "ecf159e0629b5f7846aa4014fc0c542795f3f305b5c902082cc3f9660a4361ab",
+    "HX18Controller/config.h": "35b5653ba70bcdca5cbc904b4bfd9e8cecd062a4ddd693f2a8e44bf402cce5cf",
+    "HX18Controller/controller.cpp": "88e94bdd8dcbe064e91e32f3ea25e22e5801013e15f9a9aa405cbe268838c551",
+    "HX18Controller/controller.h": "3a086749c69de28eee570685d89a9177d2a8750f7c629d518e5e00d2a8c26224",
+    "HX18Controller/robot_core.h": "55246533e968cab3923de2c192cae3fdc7f19f0753713a08dea5b7ab8cbd1ad9"
+  }
+}

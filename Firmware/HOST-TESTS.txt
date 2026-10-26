@@ -1,0 +1,9 @@
+Core passed: FK/IK,360000 gait targets,108006 preposition targets, common stance velocity, slew acceleration, calibration/safety.
+Controller safety integration passed: disabled boot/ARM gate, channel17, I2C fault, stall, heartbeat, malformed/control-character commands.
+Simulated E2E passed:5s ramp,54s WALK incl18s preposition,5s STOP with planted XY preserved,27s restart,DISARM. Physical validation not performed.
+Core passed: FK/IK,360000 gait targets,108006 preposition targets, common stance velocity, slew acceleration, calibration/safety.
+Filename                                              Regions    Missed Regions     Cover   Functions  Missed Functions  Executed       Lines      Missed Lines     Cover    Branches   Missed Branches     Cover
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/tmp/hx18-firmware-v2/HX18Controller/robot_core.h         199                 3    98.49%          25                 0   100.00%          87                 0   100.00%         166                12    92.77%
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                     199                 3    98.49%          25                 0   100.00%          87                 0   100.00%         166                12    92.77%

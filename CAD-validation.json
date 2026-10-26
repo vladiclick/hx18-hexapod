@@ -1,0 +1,180 @@
+{
+  "status": "CAD prototype; physical fit not validated",
+  "original_sketch_preserved": true,
+  "occurrences": 154,
+  "revolute_joints": 18,
+  "rigid_joints": 134,
+  "print_parts": [
+    {
+      "part": "Chassis",
+      "quantity": 1,
+      "volume_cm3": 24.315727626483522,
+      "PLA_mass_g_at_1_24": 30.151502256839567,
+      "print_bed_normal": "z",
+      "bed_mm": -9
+    },
+    {
+      "part": "LowerDeck",
+      "quantity": 1,
+      "volume_cm3": 11.830193561263695,
+      "PLA_mass_g_at_1_24": 14.66944001596698,
+      "print_bed_normal": "z",
+      "bed_mm": -29
+    },
+    {
+      "part": "PowerShelf",
+      "quantity": 1,
+      "volume_cm3": 5.99601349441744,
+      "PLA_mass_g_at_1_24": 7.435056733077626,
+      "print_bed_normal": "z",
+      "bed_mm": -6
+    },
+    {
+      "part": "ElectronicsDeck",
+      "quantity": 1,
+      "volume_cm3": 8.806844698700532,
+      "PLA_mass_g_at_1_24": 10.920487426388659,
+      "print_bed_normal": "z",
+      "bed_mm": 12
+    },
+    {
+      "part": "LowerSpacer",
+      "quantity": 6,
+      "volume_cm3": 0.49989022303918634,
+      "PLA_mass_g_at_1_24": 3.7191832594115466,
+      "print_bed_normal": "z",
+      "bed_mm": -26
+    },
+    {
+      "part": "UpperSpacer",
+      "quantity": 6,
+      "volume_cm3": 0.44107960856398787,
+      "PLA_mass_g_at_1_24": 3.2816322877160697,
+      "print_bed_normal": "z",
+      "bed_mm": -3
+    },
+    {
+      "part": "GuardLower",
+      "quantity": 4,
+      "volume_cm3": 0.635858353086547,
+      "PLA_mass_g_at_1_24": 3.153857431309273,
+      "print_bed_normal": "z",
+      "bed_mm": 15
+    },
+    {
+      "part": "GuardUpper",
+      "quantity": 4,
+      "volume_cm3": 0.4036318241331993,
+      "PLA_mass_g_at_1_24": 2.0020138477006686,
+      "print_bed_normal": "z",
+      "bed_mm": 40.4
+    },
+    {
+      "part": "GuardTall",
+      "quantity": 2,
+      "volume_cm3": 1.1058406140635597,
+      "PLA_mass_g_at_1_24": 2.742484722877628,
+      "print_bed_normal": "z",
+      "bed_mm": 15
+    },
+    {
+      "part": "CoreBridge",
+      "quantity": 1,
+      "volume_cm3": 4.8233329253634665,
+      "PLA_mass_g_at_1_24": 5.980932827450698,
+      "print_bed_normal": "z",
+      "bed_mm": 38
+    },
+    {
+      "part": "CoreCap",
+      "quantity": 1,
+      "volume_cm3": 11.51419476435114,
+      "PLA_mass_g_at_1_24": 14.277601507795413,
+      "print_bed_normal": "z",
+      "bed_mm": 55
+    },
+    {
+      "part": "CoxaPlate",
+      "quantity": 6,
+      "volume_cm3": 3.3691378770691744,
+      "PLA_mass_g_at_1_24": 25.06638580539466,
+      "print_bed_normal": "z",
+      "bed_mm": 4
+    },
+    {
+      "part": "HipBracket",
+      "quantity": 6,
+      "volume_cm3": 4.812936114752208,
+      "PLA_mass_g_at_1_24": 35.80824469375643,
+      "print_bed_normal": "z",
+      "bed_mm": 7
+    },
+    {
+      "part": "FemurPlate",
+      "quantity": 6,
+      "volume_cm3": 2.66051874460802,
+      "PLA_mass_g_at_1_24": 19.79425945988367,
+      "print_bed_normal": "y",
+      "bed_mm": 4
+    },
+    {
+      "part": "KneeMount",
+      "quantity": 6,
+      "volume_cm3": 2.8541052535097347,
+      "PLA_mass_g_at_1_24": 21.234543086112424,
+      "print_bed_normal": "-y",
+      "bed_mm": 28
+    },
+    {
+      "part": "Tibia",
+      "quantity": 6,
+      "volume_cm3": 3.178867732339529,
+      "PLA_mass_g_at_1_24": 23.650775928606095,
+      "print_bed_normal": "y",
+      "bed_mm": 12
+    },
+    {
+      "part": "FitCoupon",
+      "quantity": 1,
+      "volume_cm3": 3.5645016846166895,
+      "PLA_mass_g_at_1_24": 4.419982088924695,
+      "print_bed_normal": "z",
+      "bed_mm": 0
+    }
+  ],
+  "foot_centres_mm": [
+    [
+      110.09246763572663,
+      0.0,
+      -59.445542840449015
+    ],
+    [
+      55.04623381786333,
+      95.3428737378554,
+      -59.445542840449015
+    ],
+    [
+      -55.046233817863296,
+      95.34287373785541,
+      -59.445542840449015
+    ],
+    [
+      -110.09246763572663,
+      1.348243881003262e-14,
+      -59.445542840449015
+    ],
+    [
+      -55.04623381786337,
+      -95.34287373785537,
+      -59.445542840449015
+    ],
+    [
+      55.04623381786333,
+      -95.3428737378554,
+      -59.445542840449015
+    ]
+  ],
+  "timeline_issues": [],
+  "neutral_interferences": [],
+  "printed_solid_volume_mass_g": 223.88840129028742
+}
