@@ -1,0 +1,401 @@
+{
+  "status": "sampled geometric checks; no real actuator, load, wire or gait validation",
+  "build_revision": "V5-inline-1",
+  "poses_tested": 41,
+  "fk_points_tested": 41,
+  "max_fk_error_mm": 0.0,
+  "max_midplane_error_mm": 0.0,
+  "collisions": [],
+  "graph": {
+    "nodes": 21,
+    "edges": 20,
+    "grounded": 1,
+    "connected": true,
+    "cycles": 0
+  },
+  "joint_limits_degrees": {
+    "yaw": [
+      -20,
+      20
+    ],
+    "hip": [
+      -12,
+      12
+    ],
+    "knee": [
+      -15,
+      15
+    ]
+  },
+  "samples": [
+    {
+      "pose": "neutral",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform -20,-12,-15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform -20,-12,0",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform -20,-12,15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform -20,0,-15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform -20,0,0",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform -20,0,15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform -20,12,-15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform -20,12,0",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform -20,12,15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 0,-12,-15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 0,-12,0",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 0,-12,15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 0,0,-15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 0,0,15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 0,12,-15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 0,12,0",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 0,12,15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 20,-12,-15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 20,-12,0",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 20,-12,15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 20,0,-15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 20,0,0",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 20,0,15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 20,12,-15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 20,12,0",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "uniform 20,12,15",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "leg1 axis1 -1",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "leg1 axis1 1",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "leg1 axis2 -1",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "leg1 axis2 1",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "leg1 axis3 -1",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "leg1 axis3 1",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "alternating (-1, -1, -1)",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "alternating (-1, -1, 1)",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "alternating (-1, 1, -1)",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "alternating (-1, 1, 1)",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "alternating (1, -1, -1)",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "alternating (1, -1, 1)",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "alternating (1, 1, -1)",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    },
+    {
+      "pose": "alternating (1, 1, 1)",
+      "angles_degrees": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "collisions": 0
+    }
+  ]
+}

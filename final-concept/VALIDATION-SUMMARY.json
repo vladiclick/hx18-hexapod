@@ -1,0 +1,19 @@
+{
+  "status": "FORM AND ARCHITECTURE CONCEPT; actuator not selected; not ready to manufacture",
+  "native_poses": 71,
+  "independent_fk_points": 426,
+  "neutral_collisions": 0,
+  "sampled_colliding_poses": 0,
+  "revolute_joints": 18,
+  "rigid_joints": 47,
+  "print_definitions": 8,
+  "rigid_print_quantity": 27,
+  "soft_print_quantity": 6,
+  "modeled_service_screws": 12,
+  "full_hardware_count": "TBD",
+  "max_midplane_error_mm": 3.9968028886505635e-14,
+  "native_archive_roundtrip": true,
+  "watertight_raw_meshes": 8,
+  "watertight_oriented_meshes": 8,
+  "solid_PLA_equivalent_mass_g": 355.9064392379482
+}

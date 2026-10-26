@@ -1,77 +1,64 @@
 # hx18-hexapod
 
-An 18-servo hexapod robot with an ESP32 controller: Fusion 360 model, print-ready STLs, wiring and firmware.
+An 18-joint hexapod robot designed in Fusion 360. **final concept** is the current design; [`v2/`](v2) keeps the earlier MG90S version with complete wiring and ESP32 firmware.
 
-![HX18 render](HX18-preview.png)
+![final concept](final-concept/final-concept.png)
 
 <p>
-  <img src="Core-electronics.png" width="49%" alt="Electronics core">
-  <img src="Core-PCA-power.png" width="49%" alt="PWM drivers and power">
+  <img src="final-concept/V5-One-leg.png" width="49%" alt="One leg">
+  <img src="final-concept/HX18-Core-open.png" width="49%" alt="Core with the lid removed">
 </p>
 
-## Design
+The whole robot can be viewed in 3D on GitHub: [`final-concept/final-concept-assembly.stl`](final-concept/final-concept-assembly.stl).
 
-- Six identical legs with three joints each (yaw / hip / knee) — 18 × TowerPro MG90S servos.
-- Built up from my original leg sketch (`Original-Sketch.f3d`), kept untouched in the repo.
-- Fusion 360 assembly with 154 instances and 18 revolute joints, so the legs can be moved in CAD.
-- 17 distinct printed parts, 58 pieces in total, plus a fit-test coupon. No printed threads or splines.
-- Electronics core in the middle of the chassis: Adafruit Feather ESP32 V2, two PCA9685 16-channel PWM drivers, separate 5 V regulators for the servo bus and for logic, a 2S 450 mAh LiPo, fuse and a removable cover.
+## final concept
 
-## Files
+- Six legs with three joints each (yaw, hip, knee) — 18 revolute joints.
+- The hip and knee motors sit inside one continuous shell per leg, closed by a red front service panel. The lower arm tapers to a centred blade with a soft toe boot.
+- Hexagonal core (about 144 × 126 mm) with a tub, a lid and a removable electronics cassette, with space reserved for the battery, regulator and controller.
+- 33 printed pieces from 8 part types, and 12 service screws.
+- The actuator is not chosen yet: each joint has a reserved 32 × 27 × 13 mm envelope that the real servo will replace.
+- Built by a Python script for Fusion 360 ([`Automation/HexapodV5`](final-concept/Automation/HexapodV5)), then posed and saved as "final concept".
+- The form was inspired by [ManufacturedMotion/Hex](https://github.com/ManufacturedMotion/Hex); the geometry is modelled from scratch, with no meshes or CAD copied.
 
-| Path | Contents |
+| Path in `final-concept/` | Contents |
 |---|---|
-| `HX18-MG90S.f3d` | Fusion 360 assembly with joints — the source of truth |
-| `HX18-MG90S.step` | Geometry for any other CAD tool (no joints) |
-| `STL/` | Print-ready parts in mm, already oriented flat on the bed |
-| `Electronics/` | Electronics BOM, wiring diagram (`wiring.svg`) and wiring/calibration guide |
-| `Firmware/` | ESP32 firmware (Arduino), host tests, serial console |
-| `Automation/` | Fusion 360 API scripts that generate and audit the model |
-| `BOM-mechanical.csv` | Screws, nuts and washers |
-| `*-validation.json`, `VERIFICARE.md` | CAD, mesh, motion and gait check results |
-| `START-AICI.md` | Full build guide — parts table, print order, assembly steps (Romanian) |
+| `final-concept.f3d` | Fusion 360 design with joints |
+| `final-concept.step` | Geometry for other CAD tools |
+| `final-concept-assembly.stl` | Whole robot, printed parts only, as posed |
+| `STL/` | The 8 print parts, oriented on the bed, in mm |
+| `PRINT-BOM.csv` | Quantities, volumes and proposed orientation per part |
+| `Automation/HexapodV5/` | Generator script and its tests |
+| `*-validation.json` | CAD, motion, mesh and Python check results |
+| `README.ro.md` | Design notes (Romanian) |
 
 ## Printing
 
-| Setting | Value |
+| | |
 |---|---|
 | Printer | Bambu Lab P1S, 0.4 mm nozzle |
-| Layer height | 0.2 mm |
-| Walls | 4–5 |
-| Top / bottom layers | 5 |
-| Infill | 25–35 % |
-| Material | PLA or PETG — not test-printed yet |
+| Parts | 33 pieces from the 8 files in `STL/` — quantities in `PRINT-BOM.csv` |
+| Material | PLA or PETG for the rigid parts, TPU for the toe boots — final choice after a test leg |
+| Layer height | 0.2 mm as a starting point |
+| Supports | Needed on the lower arm, clevis and upper shell; not tuned yet |
 
-1. Print `STL/FitCoupon.stl` first, unscaled, and check a real MG90S in the 23.4 × 13.0 mm opening, the horn and the screw access.
-2. Print and assemble **one leg** before printing the rest.
-3. The largest part is the chassis (138 × 119.5 mm). Use a brim on `GuardTall` (40 mm tall). Nominal holes: M2 = 2.4 mm, M3 = 3.4 mm.
+About 360 g of plastic if printed solid. Once the actuator is chosen, print and assemble a single leg first.
 
-## Firmware
-
-Arduino firmware for the Feather ESP32 V2 driving both PCA9685 boards over I²C.
-
-- Inverse kinematics and a slow wave gait — one leg in the air at a time, five always planted, with a quintic swing so planted feet are never dragged at different speeds.
-- Safety first: boots with every output disabled, and `ARM` stays locked until all 18 servos and both PWM oscillators are calibrated in `config.h`. A missing heartbeat (1.5 s), an I²C error or a stall disables the outputs; a 1 s task watchdog resets a hung loop.
-- Joint limits plus speed and acceleration limiting on every command.
-- Serial console with `STATUS`, `ARM`, `WALK`, `STOP`, `DISARM` and per-servo bench calibration.
+The generator's pure-Python tests run without Fusion:
 
 ```bash
-# host tests (clang++, ASan/UBSan)
-sh Firmware/test.sh
-
-# build for the board
-arduino-cli compile --fqbn esp32:esp32:adafruit_feather_esp32_v2 Firmware/HX18Controller
-
-# serial console
-pip install -r Firmware/requirements.txt
-python3 Firmware/serial_console.py /dev/cu.usbserial-XXXX
+cd final-concept/Automation/HexapodV5
+pip install numpy trimesh
+python -m unittest discover    # 36 tests
 ```
 
-The host tests cover FK↔IK, 360,000 gait targets, the safety interlocks and a simulated walk/stop/restart cycle, with 100 % line coverage of the kinematics core. The firmware compiles for the board (365 KB flash, 25 KB RAM).
+## v2 — MG90S version with firmware
+
+The earlier design: 18 × MG90S servos, an Adafruit Feather ESP32 V2 with two PCA9685 PWM drivers, full wiring and an Arduino firmware with host tests (FK/IK, gait, safety interlocks; ASan/UBSan). Everything is in [`v2/`](v2), with the build guide in `v2/START-AICI.md` (Romanian). The firmware has not been adapted to the final-concept geometry.
 
 ## Status
 
-CAD and firmware are done and checked in software. **Not printed or assembled yet** — servo fit, wiring, calibration and the gait under real load still need a physical prototype.
+final concept: CAD done and checked in software — 71 joint poses without collisions and closed, single-solid meshes. Next: choose the actuator and print a test leg. Nothing has been printed yet.
 
 ## License
 

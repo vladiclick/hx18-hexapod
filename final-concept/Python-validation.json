@@ -1,0 +1,14 @@
+{
+  "unit_tests_passed": 36,
+  "pure_modules_only": true,
+  "unit_test_coverage_percent": 88.95705521472392,
+  "combined_unit_and_mesh_integration_coverage_percent": 96.62576687116564,
+  "native_Fusion_tests_reported_separately": true,
+  "modules": [
+    "mesh_checks.py",
+    "v3_core_layout.py",
+    "v3_geometry.py",
+    "v4_shapes.py",
+    "v5_layout.py"
+  ]
+}

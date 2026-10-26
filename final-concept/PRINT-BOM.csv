@@ -1,0 +1,9 @@
+part,quantity,concept_material,single_volume_cm3,solid_PLA_equivalent_total_g,proposed_bed_normal,support_strategy_validated
+CoreTub,1,rigid polymer TBD,60.55864720643096,75.09272253597439,z,False
+CoreLid,1,rigid polymer TBD,23.56058713860638,29.21512805187191,z,False
+ElectronicsCassette,1,rigid polymer TBD,4.887805697772693,6.060879065238139,z,False
+CoxaCarrier,6,rigid polymer TBD,5.354795184241144,39.83967617075412,z,False
+FemurCarrier,6,rigid polymer TBD,15.69990729017406,116.807310238895,-y,False
+FemurCheek,6,rigid polymer TBD,3.936821309056681,29.289950539381707,y,False
+Tibia,6,rigid polymer TBD,8.010856537074316,59.60077263583291,y,False
+FootPad,6,TPU prototype TBD,0.6668416727260256,4.961302045081631,y,False

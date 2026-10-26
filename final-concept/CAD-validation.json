@@ -1,0 +1,117 @@
+{
+  "status": "FORM AND ARCHITECTURE CONCEPT; actuator not selected; not ready to manufacture",
+  "reference": "ManufacturedMotion/Hex visual and architecture study; original geometry, no copied CAD meshes",
+  "build_revision": "V5-inline-6",
+  "leg_count": 6,
+  "alignment": "hip knee and toe centre lines share local Y0 plane",
+  "hip_actuator_layout": "case on femur, output fixed to proximal clevis; inverted mounting",
+  "occurrences": 66,
+  "revolute_joints": 18,
+  "rigid_joints": 47,
+  "hard_print_quantity": 27,
+  "compliant_print_quantity": 6,
+  "print_parts": [
+    {
+      "part": "CoreTub",
+      "quantity": 1,
+      "volume_cm3": 60.55864720643096,
+      "solid_PLA_mass_g": 75.09272253597439,
+      "print_bed_normal": "z",
+      "bed_mm": -32
+    },
+    {
+      "part": "CoreLid",
+      "quantity": 1,
+      "volume_cm3": 23.56058713860638,
+      "solid_PLA_mass_g": 29.21512805187191,
+      "print_bed_normal": "z",
+      "bed_mm": -4
+    },
+    {
+      "part": "ElectronicsCassette",
+      "quantity": 1,
+      "volume_cm3": 4.887805697772693,
+      "solid_PLA_mass_g": 6.060879065238139,
+      "print_bed_normal": "z",
+      "bed_mm": -15
+    },
+    {
+      "part": "CoxaCarrier",
+      "quantity": 6,
+      "volume_cm3": 5.354795184241144,
+      "solid_PLA_mass_g": 39.83967617075412,
+      "print_bed_normal": "z",
+      "bed_mm": -23.2
+    },
+    {
+      "part": "FemurCarrier",
+      "quantity": 6,
+      "volume_cm3": 15.69990729017406,
+      "solid_PLA_mass_g": 116.807310238895,
+      "print_bed_normal": "-y",
+      "bed_mm": 16.6
+    },
+    {
+      "part": "FemurCheek",
+      "quantity": 6,
+      "volume_cm3": 3.936821309056681,
+      "solid_PLA_mass_g": 29.289950539381707,
+      "print_bed_normal": "y",
+      "bed_mm": 10.2
+    },
+    {
+      "part": "Tibia",
+      "quantity": 6,
+      "volume_cm3": 8.010856537074316,
+      "solid_PLA_mass_g": 59.60077263583291,
+      "print_bed_normal": "y",
+      "bed_mm": -16.1
+    },
+    {
+      "part": "FootPad",
+      "quantity": 6,
+      "volume_cm3": 0.6668416727260256,
+      "solid_PLA_mass_g": 4.961302045081631,
+      "print_bed_normal": "y",
+      "bed_mm": -5.5
+    }
+  ],
+  "solid_PLA_mass_g_excluding_TPU": 355.9064392379482,
+  "modeled_service_screw_quantity": 12,
+  "actuator_mount_horn_pivot_hardware": "TBD; excluded from modeled service screw count",
+  "timeline_issues": [],
+  "neutral_interferences": [],
+  "foot_reference_kind": "toe boot centre at local (93,0,0); not ground contact",
+  "foot_reference_points_mm": [
+    [
+      152.56455516712452,
+      0.0,
+      -57.8523497124217
+    ],
+    [
+      76.28227758356228,
+      132.12478049180226,
+      -57.8523497124217
+    ],
+    [
+      -76.28227758356223,
+      132.12478049180228,
+      -57.8523497124217
+    ],
+    [
+      -152.56455516712452,
+      1.8683769414875883e-14,
+      -57.8523497124217
+    ],
+    [
+      -76.28227758356232,
+      -132.12478049180223,
+      -57.8523497124217
+    ],
+    [
+      76.28227758356228,
+      -132.12478049180226,
+      -57.8523497124217
+    ]
+  ]
+}

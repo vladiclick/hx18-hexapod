@@ -1,0 +1,135 @@
+{
+  "units": "mm",
+  "status": "mesh integrity and proposed orientation only; fit/support/strength not validated",
+  "mesh_count": 8,
+  "parts": [
+    {
+      "part": "CoreTub",
+      "quantity": 1,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "triangles": 6456,
+      "volume_error_percent": 0.017513710725512745,
+      "bed_normal": "z",
+      "oriented_dimensions_mm": [
+        144.0,
+        126.31535339355469,
+        32.00000000000001
+      ],
+      "lowest_z_mm": 0.0
+    },
+    {
+      "part": "CoreLid",
+      "quantity": 1,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "triangles": 5124,
+      "volume_error_percent": 0.023089092534712394,
+      "bed_normal": "z",
+      "oriented_dimensions_mm": [
+        144.0,
+        126.31535339355469,
+        16.399999618530273
+      ],
+      "lowest_z_mm": 0.0
+    },
+    {
+      "part": "ElectronicsCassette",
+      "quantity": 1,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "triangles": 2076,
+      "volume_error_percent": 0.00916415067899539,
+      "bed_normal": "z",
+      "oriented_dimensions_mm": [
+        55.922447204589844,
+        57.59209442138672,
+        15.0
+      ],
+      "lowest_z_mm": 0.0
+    },
+    {
+      "part": "CoxaCarrier",
+      "quantity": 6,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "triangles": 2596,
+      "volume_error_percent": 0.010912094918578865,
+      "bed_normal": "z",
+      "oriented_dimensions_mm": [
+        72.19865036010742,
+        41.599998474121094,
+        32.998778343200684
+      ],
+      "lowest_z_mm": 0.0
+    },
+    {
+      "part": "FemurCarrier",
+      "quantity": 6,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "triangles": 3244,
+      "volume_error_percent": 0.0038597433428779857,
+      "bed_normal": "-y",
+      "oriented_dimensions_mm": [
+        80.0,
+        28.000000000000004,
+        35.30000114440918
+      ],
+      "lowest_z_mm": 0.0
+    },
+    {
+      "part": "FemurCheek",
+      "quantity": 6,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "triangles": 732,
+      "volume_error_percent": 0.007356153873500834,
+      "bed_normal": "y",
+      "oriented_dimensions_mm": [
+        80.0,
+        28.0,
+        8.500000953674316
+      ],
+      "lowest_z_mm": 0.0
+    },
+    {
+      "part": "Tibia",
+      "quantity": 6,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "triangles": 6288,
+      "volume_error_percent": 0.019536038000031196,
+      "bed_normal": "y",
+      "oriented_dimensions_mm": [
+        104.19442367553711,
+        22.39325332641602,
+        32.20000076293945
+      ],
+      "lowest_z_mm": 0.0
+    },
+    {
+      "part": "FootPad",
+      "quantity": 6,
+      "watertight": true,
+      "winding_consistent": true,
+      "connected_solids": 1,
+      "triangles": 1800,
+      "volume_error_percent": 0.027848711351999865,
+      "bed_normal": "y",
+      "oriented_dimensions_mm": [
+        10.999046325683594,
+        10.99952507019043,
+        11.0
+      ],
+      "lowest_z_mm": 0.0
+    }
+  ]
+}
