@@ -1,0 +1,14 @@
+item,qty,note
+"Waveshare ST3215 serial bus servo, 12 V",18,"6 yaw (in the core), 6 hip and 6 knee (in the femurs); IDs 1-18"
+M3 x 12 socket head screw (DIN 912),24,"4 per coxa, through the yaw cap into the yaw servo horn"
+M3 x 6 button head screw (ISO 7380),48,4 per hip and knee drive horn
+M3 x 5 button head screw (ISO 7380),48,4 per hip and knee idler horn (3.35 mm thick)
+M3 x 45 socket head screw (DIN 912),6,"rear screw of each red femur cover, passes over the servos"
+M3 x 40 socket head screw (DIN 912),4,"core lid, from underneath"
+M3 x 6 screw,2,electronics cassette
+"M3 heat-set insert, 4.2 mm hole",12,"4 lid bosses, 2 cassette columns, 6 femur cover tongues"
+M2 x 12 screw,18,"3 per femur: hip servo case (2) and knee servo case (1), from the back"
+M2 x 14 screw,24,"4 per yaw servo, through the tub floor"
+Battery,1,"keep-out 60 x 32 x 18 mm under the cassette (the concept's, scaled)"
+ESP32 with a serial bus servo interface,1,keep-out 73 x 34 x 11 mm under the lid
+"Regulator, if the controller needs one",1,keep-out 44 x 44 x 14 mm

@@ -1,0 +1,119 @@
+{
+  "interference": {
+    "method": "exact B-rep intersection of every pair of parts, core + leg 1, modelled pose",
+    "parts": 33,
+    "overlapping_pairs": []
+  },
+  "modelled_pose": {
+    "min_clearance_mm": 0.42,
+    "closest": [
+      "leg1/femur",
+      "leg1/tibia"
+    ]
+  },
+  "concept_joint_ranges": {
+    "ranges_deg": {
+      "yaw": [
+        -20.0,
+        20.0
+      ],
+      "hip": [
+        -12.0,
+        12.0
+      ],
+      "knee": [
+        -15.0,
+        15.0
+      ]
+    },
+    "step_deg": 3.0,
+    "yaw_values": [
+      "min",
+      0,
+      "max"
+    ],
+    "poses": 297,
+    "poses_with_contact": 0,
+    "contacts": []
+  },
+  "free_travel_deg": {
+    "note": "each joint alone from the modelled pose until the first contact, 1 deg steps; the concept geometry alone gives the same hip and knee limits",
+    "yaw": [
+      -50.0,
+      50.0
+    ],
+    "hip": [
+      -27.0,
+      23.0
+    ],
+    "knee": [
+      -19.0,
+      41.0
+    ]
+  },
+  "neighbours": {
+    "legs 1 and 2 turned 20 deg towards each other": "clear",
+    "legs 1 and 2 turned 30 deg towards each other": "clear"
+  },
+  "concept_fidelity": {
+    "note": "the generator with servo=False and scale 1 rebuilds the concept parts; volumes in cm3, compare final-concept/PRINT-BOM.csv",
+    "volumes": {
+      "CoreTub": 60.5586,
+      "CoreLid": 23.5606,
+      "ElectronicsCassette": 4.8878,
+      "CoxaCarrier": 5.3548,
+      "FemurCarrier": 15.6999,
+      "FemurCheek": 3.9368,
+      "Tibia": 8.0108,
+      "FootPad": 0.6668
+    }
+  },
+  "solids": {
+    "CoreTub": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 169.1
+    },
+    "CoreLid": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 64.97
+    },
+    "ElectronicsCassette": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 11.46
+    },
+    "CoxaCarrier": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 17.62
+    },
+    "FemurCarrier": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 43.79
+    },
+    "FemurCheek": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 10.5
+    },
+    "Tibia": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 22.36
+    },
+    "FootPad": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 1.83
+    }
+  },
+  "scale": 1.4,
+  "servo": {
+    "model": "Waveshare ST3215",
+    "count": 18,
+    "source": "https://files.waveshare.com/upload/5/59/ST3215-3D.zip"
+  }
+}

@@ -1,0 +1,9 @@
+part,file,qty,material,colour,volume_cm3,solid_mass_g,bed_size_mm
+CoreTub,STL/CoreTub.stl,1,PETG,charcoal,169.1,214.8,202 x 177 x 45
+CoreLid,STL/CoreLid.stl,1,PETG,charcoal,65.0,82.5,202 x 177 x 23
+ElectronicsCassette,STL/ElectronicsCassette.stl,1,PETG,charcoal,11.5,14.6,76 x 81 x 21
+CoxaCarrier,STL/CoxaCarrier.stl,6,PETG,white,17.6,22.4,101 x 58 x 46
+FemurCarrier,STL/FemurCarrier.stl,6,PETG,white,43.8,55.6,112 x 39 x 49
+FemurCheek,STL/FemurCheek.stl,6,PLA,red,10.5,13.0,112 x 39 x 9
+Tibia,STL/Tibia.stl,6,PETG,white,22.4,28.4,146 x 34 x 56
+FootPad,STL/FootPad.stl,6,TPU 95A,white,1.8,2.2,15 x 15 x 15
