@@ -4,3 +4,4 @@ __pycache__/
 .venv/
 v2/Firmware/build/
 build/
+node_modules/

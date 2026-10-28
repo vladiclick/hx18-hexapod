@@ -1,0 +1,122 @@
+{
+  "stand_pose": {
+    "pose": {
+      "yaw": 0.0,
+      "hip": 25.0,
+      "knee": 0.0
+    },
+    "min_clearance_mm": 0.35,
+    "closest": [
+      "core",
+      "leg1/coxa"
+    ],
+    "height_mm": 125.0
+  },
+  "interference": {
+    "method": "exact B-rep intersection, core + one leg, stand pose",
+    "parts": 90,
+    "overlapping_pairs": []
+  },
+  "joint_sweep": {
+    "ranges_deg": {
+      "yaw": [
+        -40.0,
+        40.0
+      ],
+      "hip": [
+        -30.0,
+        90.0
+      ],
+      "knee": [
+        -30.0,
+        110.0
+      ]
+    },
+    "step_deg": 5.0,
+    "yaw_values": [
+      "min",
+      0,
+      "max"
+    ],
+    "poses": 2175,
+    "poses_with_contact": 0,
+    "contacts": []
+  },
+  "tripod_gait": {
+    "frames": 24,
+    "stride_mm": 50,
+    "lift_mm": 28,
+    "frames_with_contact": [],
+    "joint_min_deg": [
+      -11.1,
+      21.0,
+      -22.2
+    ],
+    "joint_max_deg": [
+      11.1,
+      54.3,
+      13.0
+    ]
+  },
+  "neighbours": {
+    "15 deg towards each other": "clear",
+    "25 deg towards each other": "clear"
+  },
+  "solids": {
+    "coxa": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 26.56
+    },
+    "coxa_cap": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 7.56
+    },
+    "femur": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 14.8
+    },
+    "femur_cover": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 2.46
+    },
+    "tibia": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 53.34
+    },
+    "toe_boot": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 4.51
+    },
+    "core_tub": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 86.6
+    },
+    "core_lid": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 80.88
+    },
+    "front_arrow": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 0.26
+    },
+    "battery_bay": {
+      "valid": true,
+      "solids": 1,
+      "volume_cm3": 60.57
+    }
+  },
+  "servo": {
+    "model": "Waveshare ST3215",
+    "source": "https://files.waveshare.com/upload/5/59/ST3215-3D.zip",
+    "count": 18
+  }
+}

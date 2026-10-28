@@ -1,0 +1,11 @@
+item,qty,note
+"Waveshare ST3215 serial bus servo (30 kg.cm, 12 V)",18,"one per joint, IDs 1-18"
+M3 x 6 socket head screw,72,4 per joint into the drive horn
+M3 x 5 socket head screw,72,4 per joint into the idler horn (it is only 3.35 mm thick)
+"M3 x 10 screw, self-tapping or with heat-set insert",24,4 per coxa cap
+"M3 x 8 screw, self-tapping or with heat-set insert",30,"4 per femur cover, 6 for the lid"
+"M3 x 14 screw, self-tapping",6,battery bay to the tub floor
+M2 x 6 screw,24,"2 per hip and knee servo, into the bottom-case holes"
+M2 x 5 screw,12,"2 per yaw servo, through the tub floor"
+"3S LiPo, about 106 x 35 x 25 mm (e.g. 2200 mAh) with XT60",1,sits in the battery bay
+"ESP32 bus-servo driver board, 65 x 50 mm envelope",1,e.g. Waveshare Servo Driver with ESP32; on the tub floor

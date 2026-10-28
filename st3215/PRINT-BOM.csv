@@ -1,0 +1,11 @@
+part,file,qty,material,colour,volume_cm3,solid_mass_g,bed_size_mm
+core-tub,STL/core-tub.stl,1,PETG,charcoal,86.6,110.0,151 x 132 x 37
+core-lid,STL/core-lid.stl,1,PETG,charcoal,80.9,102.7,151 x 132 x 7
+front-arrow,STL/front-arrow.stl,1,PLA,red,0.3,0.3,25 x 21 x 1
+battery-bay,STL/battery-bay.stl,1,PETG,charcoal,60.6,76.9,132 x 116 x 30
+coxa,STL/coxa.stl,6,PETG,white,26.6,33.7,53 x 45 x 45
+coxa-cap,STL/coxa-cap.stl,6,PLA,red,7.6,9.4,19 x 45 x 10
+femur,STL/femur.stl,6,PETG,white,14.8,18.8,57 x 32 x 45
+femur-cover,STL/femur-cover.stl,6,PLA,red,2.5,3.1,21 x 45 x 3
+tibia,STL/tibia.stl,6,PETG,white,53.3,67.7,56 x 132 x 46
+toe-boot,STL/toe-boot.stl,6,TPU 95A,black,4.5,5.5,20 x 20 x 22

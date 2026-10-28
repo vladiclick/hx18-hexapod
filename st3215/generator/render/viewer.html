@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+html,body{margin:0;background:#2e3440;overflow:hidden;font-family:-apple-system,"Helvetica Neue",Arial,sans-serif}
+canvas{display:block}
+.tag{position:absolute;transform:translate(-50%,-50%);min-width:30px;height:30px;padding:0 6px;box-sizing:border-box;
+  border-radius:15px;color:#fff;font-weight:700;font-size:17px;line-height:30px;text-align:center;
+  border:2px solid rgba(255,255,255,.9);box-shadow:0 2px 6px rgba(0,0,0,.45)}
+.legend{position:absolute;left:28px;bottom:24px;color:#e5e9f0;font-size:20px;line-height:34px}
+.legend span{display:inline-block;width:18px;height:18px;border-radius:9px;margin:0 8px -2px 0;border:2px solid #fff}
+</style>
+<script type="importmap">{"imports":{"three":"/three/build/three.module.js","three/addons/":"/three/examples/jsm/"}}</script>
+</head>
+<body>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const q = new URLSearchParams(location.search);
+const W = +q.get('w') || 1800, H = +q.get('h') || 1400;
+const dir = (q.get('dir') || '1,-1.25,0.9').split(',').map(Number);   // camera direction from target, Z up
+const fov = +q.get('fov') || 26;
+const pad = +q.get('pad') || 1.12;
+const ground = q.get('ground') !== '0';
+const hide = (q.get('hide') || '').split(',').filter(Boolean);
+const tgt = q.get('target') ? q.get('target').split(',').map(Number) : null;
+
+THREE.Object3D.DEFAULT_UP.set(0, 0, 1);
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1);
+renderer.setSize(W, H);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x2e3440);
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = 0.55;
+
+const gltf = await new GLTFLoader().loadAsync(q.get('model'));
+const root = gltf.scene;
+root.updateMatrixWorld(true);
+root.traverse(o => {
+  if (!o.isMesh) return;
+  if (hide.some(h => o.name.startsWith(h) || (o.parent && o.parent.name.startsWith(h)))) { o.visible = false; return; }
+  o.castShadow = o.receiveShadow = true;
+  o.material.side = THREE.DoubleSide;
+});
+scene.add(root);
+
+const box = new THREE.Box3();
+root.traverse(o => { if (o.isMesh && o.visible) box.expandByObject(o); });
+const size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
+if (tgt) center.set(...tgt);
+
+if (ground) {
+  const g = new THREE.Mesh(new THREE.PlaneGeometry(4000, 4000), new THREE.ShadowMaterial({ opacity: 0.32 }));
+  g.position.z = box.min.z - 0.05;
+  g.receiveShadow = true;
+  scene.add(g);
+}
+scene.add(new THREE.HemisphereLight(0xdfe6f2, 0x30343c, 1.1));
+const key = new THREE.DirectionalLight(0xffffff, 2.3);
+const r = size.length();
+key.position.set(center.x - 0.35 * r, center.y - 0.75 * r, center.z + 1.35 * r);
+key.target.position.copy(center);
+key.castShadow = true;
+key.shadow.mapSize.set(4096, 4096);
+Object.assign(key.shadow.camera, { left: -r, right: r, top: r, bottom: -r, near: 0.1, far: 6 * r });
+key.shadow.bias = -0.0004;
+key.shadow.radius = 4;
+scene.add(key, key.target);
+const rim = new THREE.DirectionalLight(0xc8d4ff, 0.8);
+rim.position.set(center.x + r, center.y + r, center.z + 0.6 * r);
+scene.add(rim);
+
+const cam = new THREE.PerspectiveCamera(fov, W / H, 1, 20000);
+const d = new THREE.Vector3(...dir).normalize();
+// fit: distance so the bounding sphere fills the frame
+const radius = 0.5 * size.length();
+const vfov = THREE.MathUtils.degToRad(fov), hfov = 2 * Math.atan(Math.tan(vfov / 2) * W / H);
+const dist = pad * radius / Math.sin(Math.min(vfov, hfov) / 2);
+cam.position.copy(center).addScaledVector(d, dist);
+if (Math.abs(d.z) > 0.999) cam.up.set(...(q.get('up') || '0,1,0').split(',').map(Number));
+cam.lookAt(center);
+cam.updateMatrixWorld();
+
+// tighten framing to the projected box
+const pts = [];
+root.traverse(o => {
+  if (!o.isMesh || !o.visible) return;
+  const pos = o.geometry.attributes.position;
+  const step = Math.max(1, Math.floor(pos.count / 400));
+  for (let i = 0; i < pos.count; i += step) pts.push(new THREE.Vector3().fromBufferAttribute(pos, i).applyMatrix4(o.matrixWorld));
+});
+let mx = 0, my = 0;
+for (const p of pts) { const s = p.clone().project(cam); mx = Math.max(mx, Math.abs(s.x)); my = Math.max(my, Math.abs(s.y)); }
+const fill = Math.max(mx, my) / (q.get('fill') ? +q.get('fill') : 0.86);
+cam.position.copy(center).addScaledVector(d, q.get('dist') ? +q.get('dist') : dist * fill);   // dist: fixed framing
+cam.updateMatrixWorld();
+
+renderer.render(scene, cam);
+
+if (q.get('labels')) {
+  const colors = { yaw: '#2f6fd6', hip: '#e08a12', knee: '#1f9d55' };
+  const labels = await (await fetch('/labels/' + q.get('labels'))).json();
+  for (const l of labels) {
+    const s = new THREE.Vector3(...l.p).project(cam);
+    const el = document.createElement('div');
+    el.className = 'tag';
+    el.textContent = l.text;
+    el.style.background = colors[l.kind] || '#555';
+    el.style.left = ((s.x + 1) / 2 * W) + 'px';
+    el.style.top = ((1 - s.y) / 2 * H) + 'px';
+    document.body.appendChild(el);
+  }
+  const lg = document.createElement('div');
+  lg.className = 'legend';
+  lg.innerHTML = Object.entries(colors).map(([k, c]) => `<div><span style="background:${c}"></span>${k} servo</div>`).join('')
+    + '<div style="opacity:.75;font-size:16px">numbers = ST3215 bus IDs</div>';
+  document.body.appendChild(lg);
+}
+window.__done = true;
+</script>
+</body>
+</html>
