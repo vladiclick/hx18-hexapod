@@ -68,6 +68,24 @@
       "FootPad": 0.6668
     }
   },
+  "tripod_gait": {
+    "frames": 40,
+    "stride": 50.0,
+    "lift": 18.0,
+    "heading": 90.0,
+    "frames_with_contact": [],
+    "min_clearance_mm": 0.42,
+    "joint_min_deg": [
+      -10.8,
+      -7.6,
+      -16.7
+    ],
+    "joint_max_deg": [
+      10.8,
+      20.2,
+      15.4
+    ]
+  },
   "solids": {
     "CoreTub": {
       "valid": true,

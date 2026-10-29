@@ -6,6 +6,7 @@ from pathlib import Path
 
 import cadquery as cq
 
+import gait
 import layout
 import parts as P
 
@@ -47,6 +48,25 @@ class Servo(unittest.TestCase):
         _, shoulder, knee = layout.joints(2, 10, 5, -7)
         self.assertLess((layout.apply(f['femur'], layout.FEMUR) - cq.Vector(*knee)).Length, 1e-9)
         self.assertLess((layout.apply(f['femur']) - cq.Vector(*shoulder)).Length, 1e-9)
+
+
+class Gait(unittest.TestCase):
+    def test_ik_inverts_the_frames(self):
+        for i, q in ((0, (8.0, 12.0, -9.0)), (4, (-5.0, -4.0, 11.0))):
+            got = gait.ik(i, layout.foot_point(i, *q).toTuple())
+            for a, b in zip(got, q):
+                self.assertAlmostEqual(a, b, places=9)
+
+    def test_planted_feet_do_not_slide(self):
+        cycle = gait.tripod()
+        for i in range(layout.LEGS):
+            home_z = layout.foot_point(i).z
+            planted = [(n, layout.foot_point(i, *poses[i]) + cq.Vector(bx, by, 0))
+                       for n, ((bx, by), poses) in enumerate(cycle)
+                       if abs(layout.foot_point(i, *poses[i]).z - home_z) < 1e-9]
+            for (n0, p0), (n1, p1) in zip(planted, planted[1:]):
+                if n1 == n0 + 1:
+                    self.assertLess((p1 - p0).Length, 1e-9)
 
 
 class Solids(unittest.TestCase):

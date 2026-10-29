@@ -3,6 +3,7 @@
     python build.py             # STEP, STLs, BOMs and VALIDATION.json
     python build.py --renders   # also the PNGs (needs node with three and playwright-core, and Chrome;
                                 #   HX18_NODE_MODULES=<node_modules folder>)
+    python build.py --gif       # the walking GIF (same requirements)
 """
 import argparse
 import csv
@@ -16,6 +17,7 @@ from pathlib import Path
 import cadquery as cq
 
 import assembly as A
+import gait
 import layout
 import parts as P
 import scene
@@ -23,6 +25,9 @@ import scene
 OUT = Path(__file__).resolve().parents[1]
 GEN = Path(__file__).resolve().parent
 NAME = 'hx18-final-concept-st3215'
+# tripod gait inside the concept's free joint travel; 2 x stride per cycle = one floor tile, so the GIF loops
+GAIT = dict(frames=40, stride=50.0, lift=18.0, heading=90.0)
+GIF_VIEW = dict(dir='0.95,0.5,0.38', dist=1120, height=65)
 
 # part, quantity, material, colour, bed normal (as in final-concept/PRINT-BOM.csv)
 PRINTS = [
@@ -117,6 +122,14 @@ def validation():
         concept[key] = round(fn(1.0, servo=False).solid().Volume() / 1000, 4)
     report['concept_fidelity'] = dict(note='the generator with servo=False and scale 1 rebuilds the concept parts; '
                                       'volumes in cm3, compare final-concept/PRINT-BOM.csv', volumes=concept)
+    cycle = gait.tripod(**GAIT)
+    legs = checks.Checker(tuple(range(layout.LEGS)))
+    contact = [n for n, (_, poses) in enumerate(cycle) if legs.collisions(dict(enumerate(poses)))]
+    flat = [q for _, poses in cycle for q in poses]
+    report['tripod_gait'] = dict(**GAIT, frames_with_contact=contact,
+                                 min_clearance_mm=round(min(legs.clearance(dict(enumerate(p)))[0] for _, p in cycle), 2),
+                                 joint_min_deg=[round(min(q[j] for q in flat), 1) for j in range(3)],
+                                 joint_max_deg=[round(max(q[j] for q in flat), 1) for j in range(3)])
     report['solids'] = {k: dict(valid=v.isValid(), solids=len(v.Solids()), volume_cm3=round(v.Volume() / 1000, 2))
                         for k, v in A.shapes().items()}
     report['scale'] = layout.S
@@ -225,9 +238,47 @@ def side_by_side(left, right, out):
     right.unlink()
 
 
+def walking_frames(only=None):
+    """Placed parts of every gait frame, the body moved along the walking direction."""
+    out = []
+    for n, ((bx, by), poses) in enumerate(gait.tripod(**GAIT)):
+        if only is not None and n not in only:
+            continue
+        parts = A.on_ground(A.robot([dict(yaw=a, hip=h, knee=k) for a, h, k in poses]))
+        move = cq.Location(cq.Vector(bx, by, 0))
+        out.append(((bx, by), [scene.Part(p.name, p.shape, p.color, move * p.loc, p.kind, p.metal, p.link)
+                               for p in parts]))
+    return out
+
+
+def walk_gif(only=None, out=None):
+    from PIL import Image
+    tmp = Path(tempfile.gettempdir()) / 'hx18-fc-st3215-render'
+    tile = 2 * GAIT['stride']
+    jobs = []
+    for n, ((bx, by), parts) in enumerate(walking_frames(only)):
+        query = (f"dir={GIF_VIEW['dir']}&w=1920&h=1200&target={bx:.3f},{by:.3f},{GIF_VIEW['height']}"
+                 f"&dist={GIF_VIEW['dist']}&floor={tile:g}&r=700")
+        jobs.append((parts, tmp / f'walk-{n:02d}.png', query, None))
+    render(jobs)
+    frames = [Image.open(png).convert('RGB').resize((960, 600), Image.LANCZOS) for _, png, _, _ in jobs]
+    if out is not None:                      # stills for checking the view
+        for n, im in enumerate(frames):
+            im.save(Path(out) / f'walk-still-{n}.png')
+        return
+    pal = Image.new('RGB', (960, 600 * 4))
+    for k in range(4):
+        pal.paste(frames[k * len(frames) // 4], (0, 600 * k))
+    pal = pal.quantize(colors=255, method=Image.Quantize.MEDIANCUT)
+    gif = [im.quantize(palette=pal, dither=Image.Dither.NONE) for im in frames]
+    gif[0].save(OUT / 'renders' / 'HX18-ST3215-walk.gif', save_all=True, append_images=gif[1:],
+                duration=40, loop=0, optimize=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--renders', action='store_true')
+    ap.add_argument('--gif', action='store_true')
     ap.add_argument('--skip-cad', action='store_true')
     args = ap.parse_args()
     parts = A.on_ground(A.robot())
@@ -241,6 +292,8 @@ def main():
               'with contact')
     if args.renders:
         renders(parts)
+    if args.gif:
+        walk_gif()
 
 
 if __name__ == '__main__':

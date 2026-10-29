@@ -2,6 +2,8 @@
 
 The [final concept](../final-concept) with a real Waveshare ST3215 serial bus servo in every one of the 18 joints. The design is the same: same parts, same shapes, same colours, same pose. The concept only reserved a 32 × 27 × 13 mm envelope per joint, and the ST3215 does not fit in that, so the whole robot is scaled up 1.4× and the servo mounts are added inside the parts.
 
+![Walking, tripod gait](renders/HX18-ST3215-walk.gif)
+
 ![Final concept and the ST3215 version](renders/Before-after.png)
 
 <p>
@@ -44,7 +46,7 @@ The hip servo case rides in the femur and its two horns are bolted to the coxa p
 | `PRINT-BOM.csv` | Quantity, material, colour and volume per part |
 | `HARDWARE-BOM.csv` | Servos, screws, inserts and electronics keep-outs |
 | `VALIDATION.json` | Interference, joint range and fidelity checks |
-| `renders/` | The pictures |
+| `renders/` | The pictures and the walking GIF |
 | `generator/` | The Python generator and its tests |
 
 ## Servo IDs
@@ -77,6 +79,7 @@ From `generator/build.py`, written to [`VALIDATION.json`](VALIDATION.json):
 - Exact B-rep intersection of every pair of parts (core and one leg, 33 parts, servos included): no overlaps.
 - The concept's joint ranges (yaw ±20°, hip ±12°, knee ±15°) on a 3° grid, 297 poses: no contact.
 - Free travel of each joint from the modelled pose: yaw ±50°, hip −27° to +23°, knee −19° to +41°. Hip and knee are limited by the concept's own shapes, the same as at the original size.
+- Tripod gait in the GIF, all six legs, 40 frames: no contact. 50 mm per step, feet lifted 18 mm, joints within yaw ±11°, hip −8° to +20°, knee −17° to +15°. Planted feet do not slide; the gait is in `generator/gait.py` (inverse kinematics included).
 - With `servo=False` and scale 1, the generator rebuilds the eight concept parts with the volumes Fusion reported for them.
 
 ## Generator
@@ -86,12 +89,12 @@ The generator ports the Fusion script in [`final-concept/Automation/HexapodV5`](
 ```bash
 cd final-concept-st3215/generator
 pip install cadquery trimesh python-fcl pillow
-python -m unittest test_hx18     # 7 tests
+python -m unittest test_hx18     # 9 tests
 python build.py                  # STEP, STLs, BOMs, VALIDATION.json
 
 # renders also need Node with three and playwright-core, plus Google Chrome
 npm install --prefix /tmp/hx18-render three@0.169.0 playwright-core@1.48.2
-HX18_NODE_MODULES=/tmp/hx18-render/node_modules python build.py --renders
+HX18_NODE_MODULES=/tmp/hx18-render/node_modules python build.py --renders --gif
 ```
 
 ## Status

@@ -60,7 +60,28 @@ root.traverse(o => { if (o.isMesh && o.visible) box.expandByObject(o); });
 const size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
 if (tgt) center.set(...tgt);
 
-if (ground) {
+if (q.get('floor')) {
+  // tiled floor fixed in the world (tile = mm), fading into the background
+  const tile = +q.get('floor'), px = 256;
+  const c = document.createElement('canvas');
+  c.width = c.height = px;
+  const g2 = c.getContext('2d');
+  g2.fillStyle = '#434c5e';
+  g2.fillRect(0, 0, px, px);
+  g2.fillStyle = '#4c566a';
+  g2.fillRect(0, 0, px, 3);
+  g2.fillRect(0, 0, 3, px);
+  const map = new THREE.CanvasTexture(c);
+  map.colorSpace = THREE.SRGBColorSpace;
+  map.wrapS = map.wrapT = THREE.RepeatWrapping;
+  const span = 60 * tile;
+  map.repeat.set(span / tile, span / tile);
+  map.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  const g = new THREE.Mesh(new THREE.PlaneGeometry(span, span), new THREE.MeshStandardMaterial({ map, roughness: 0.95 }));
+  g.position.z = -0.05;
+  g.receiveShadow = true;
+  scene.add(g);
+} else if (ground) {
   const g = new THREE.Mesh(new THREE.PlaneGeometry(4000, 4000), new THREE.ShadowMaterial({ opacity: 0.32 }));
   g.position.z = box.min.z - 0.05;
   g.receiveShadow = true;
@@ -68,7 +89,7 @@ if (ground) {
 }
 scene.add(new THREE.HemisphereLight(0xdfe6f2, 0x30343c, 1.1));
 const key = new THREE.DirectionalLight(0xffffff, 2.3);
-const r = size.length();
+const r = q.get('r') ? +q.get('r') : size.length();      // r: fixed light rig, for animations
 key.position.set(center.x - 0.35 * r, center.y - 0.75 * r, center.z + 1.35 * r);
 key.target.position.copy(center);
 key.castShadow = true;
@@ -105,6 +126,10 @@ for (const p of pts) { const s = p.clone().project(cam); mx = Math.max(mx, Math.
 const fill = Math.max(mx, my) / (q.get('fill') ? +q.get('fill') : 0.86);
 cam.position.copy(center).addScaledVector(d, q.get('dist') ? +q.get('dist') : dist * fill);   // dist: fixed framing
 cam.updateMatrixWorld();
+if (q.get('floor')) {
+  const near = cam.position.distanceTo(center);
+  scene.fog = new THREE.Fog(0x2e3440, near + 250, near + 2000);
+}
 
 renderer.render(scene, cam);
 
